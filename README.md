@@ -8,6 +8,15 @@ Use beforeEach (()=>{}) to do the set up for all testing.
 Use it ('description of the test', ()=> {}) to do a specific test
 Use describe ('group name', ()=> {}) to group testes together
 
+You can create a mockService by using jasmine.createSpyObj.
+
 You need TestBed and ComponentFixture to test a component.
 TestBed configures and initializes environment for unit testing and provides methods for creating components and services in unit tests.
-ComponentFixture is used to debugging and testing a component
+ComponentFixture is used to debugging and testing a component. It has nativeElement and debugElement. The debugElement is a wrapper around the DOM node and has a lot of different methods.
+
+A mockService can be injected to the component using the following:
+providers: [
+    {provide: HeroService, useValue: mockHeroService}
+]
+
+
