@@ -23,3 +23,11 @@ You can create a fake child component using the same selector as the real child 
 
 You can use the actual child component and the debug element to do a deep integration test
 
+To unit test a service, need do the following
+1) user TestBed to get the service and HttpTestingController
+2) call the service with specific parameters
+3) req = httpTestingController.expectOne(correctURL)
+4) req.flush(correct response data)
+5) httpTestingController.verify()
+
+
