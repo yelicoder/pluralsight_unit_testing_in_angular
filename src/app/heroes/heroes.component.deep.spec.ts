@@ -62,6 +62,35 @@ describe('HeroesComponent (deep tests)', ()=> {
         .triggerEventHandler('click', {stopPropagation: () => {}});
         
         expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+    });
+
+    it(`should call hereoService.deleteHero when the HeroComponent's 
+    delete button is clicked another way`, () => {
+        spyOn(fixture.componentInstance, 'delete');
+        mockHeroService.getHeroes.and.returnValue(of(HEROES));
+
+        fixture.detectChanges();
+
+        const heroComponents = fixture.debugElement.queryAll(By.directive(HeroComponent));
+        (<HeroComponent>heroComponents[0].componentInstance).delete.emit(undefined)
+
+        
+        expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+    });
+
+    it(`should call hereoService.deleteHero when the HeroComponent's 
+    delete button is clicked the third way`, () => {
+        spyOn(fixture.componentInstance, 'delete');
+        mockHeroService.getHeroes.and.returnValue(of(HEROES));
+
+        fixture.detectChanges();
+
+        const heroComponents = fixture.debugElement.queryAll(By.directive(HeroComponent));
+        //(<HeroComponent>heroComponents[0].componentInstance).delete.emit(undefined)
+        heroComponents[0].triggerEventHandler('delete', null);
+
+        
+        expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
     })
 
 });
