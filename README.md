@@ -30,4 +30,12 @@ To unit test a service, need do the following
 4) req.flush(correct response data)
 5) httpTestingController.verify()
 
+To test a inputbox
+1) Get the native element of the input debugElement
+2) set the value of the input element
+3) Get the add button
+4) Mock the service with the correct returne value
+5) Trigger the click event of the add button
+6) Expect a new entry added in the list 
+
 
