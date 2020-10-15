@@ -44,3 +44,23 @@ The key of testing with ActivatedRoute is to extract the data from ActivatedRout
 
 import FormsModule to fix the "can't bind to 'ngModel'" error
 
+Use the following Directive Stub Template to create a RouterLinkDirectiveStub
+@Directive({
+    selector: '[routerLink]',
+    host: {'(click)': 'onClick()'}
+    // 'click' is the event, onClick is the method call in the directive. These two are mapped by the host
+})
+
+export class RouterLinkDirectStub {
+    @Input('routerLink') linkParams: any;
+    navigatedTo: any = null;
+
+    onClick() {
+        this.navigatedTo = this.linkParams;
+    }
+}
+
+Test the routerLink
+1) Write the RouterLinkDirectiveStub, in the stub mapping the 'click' event with the correct Function
+2) get the stub and trigger the routelink event
+3) expect the correct value in the routelink value
