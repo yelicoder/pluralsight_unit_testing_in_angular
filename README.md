@@ -19,6 +19,8 @@ providers: [
     {provide: HeroService, useValue: mockHeroService}
 ]
 
+In general, whatever in the component's constructor need be mocked
+
 You can create a fake child component using the same selector as the real child component
 
 You can use the actual child component and the debug element to do a deep integration test
@@ -30,7 +32,7 @@ To unit test a service, need do the following
 4) req.flush(correct response data)
 5) httpTestingController.verify()
 
-To test a inputbox
+To test an inputbox
 1) Get the native element of the input debugElement
 2) set the value of the input element
 3) Get the add button
@@ -38,4 +40,7 @@ To test a inputbox
 5) Trigger the click event of the add button
 6) Expect a new entry added in the list 
 
+The key of testing with ActivatedRoute is to extract the data from ActivatedRoute and render the component correctly. 
+
+import FormsModule to fix the "can't bind to 'ngModel'" error
 
