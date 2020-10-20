@@ -64,3 +64,10 @@ Test the routerLink
 1) Write the RouterLinkDirectiveStub, in the stub mapping the 'click' event with the correct Function
 2) get the stub and trigger the routelink event
 3) expect the correct value in the routelink value
+
+Test Async Call: FakeAsync is the best
+1) use Timeout and jasmine done function
+2) Better: use FakeAsync with tick(). Even better: use FakeAsync with flush(). 
+3) for Promise, you can also use async 
+
+Code Coverage: ng test --code-coverage
