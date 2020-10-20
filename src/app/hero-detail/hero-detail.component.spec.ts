@@ -5,6 +5,8 @@ import { ActivatedRoute } from "@angular/router";
 import { of } from "rxjs";
 import { HeroService } from "../hero.service";
 import { HeroDetailComponent } from "./hero-detail.component";
+import { debounce } from "rxjs/operators";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe ('HeroDetailCoomponent', () =>{
     let fixture: ComponentFixture<HeroDetailComponent>;
@@ -15,12 +17,18 @@ describe ('HeroDetailCoomponent', () =>{
         }
         mockHeroService = jasmine.createSpyObj(['getHero', 'updateHero']);
         mockLocation = jasmine.createSpyObj(['back']);
+       // mockLocation = {
+         //   back: jasmine.createSpy('back')
+        //}
+
+        
+       //providers: [{ provide: Location, useClass: SpyLocation }]
 
         TestBed.configureTestingModule({
-            imports: [FormsModule],
+            imports: [FormsModule, RouterTestingModule],
             declarations: [HeroDetailComponent],
             providers: [
-                {provide: Location, userValue: mockLocation},
+                {provide: Location, useValue: mockLocation},
                 {provide: ActivatedRoute, useValue: mockActivatedRoute},
                 {provide: HeroService, useValue: mockHeroService},
                 
@@ -35,6 +43,18 @@ describe ('HeroDetailCoomponent', () =>{
         fixture.detectChanges();
 
         expect(fixture.nativeElement.querySelector('h2').textContent).toContain('SUPERDUDE');
+
+    });
+
+    it (`should call updateHero when save is called`, (done) => {
+        mockHeroService.updateHero.and.returnValue(of({}));
+        fixture.detectChanges();
+        fixture.componentInstance.save();
+
+       setTimeout(() => {
+           expect(mockHeroService.updateHero).toHaveBeenCalled();
+           done();
+       }, 500);
 
     })
 })
