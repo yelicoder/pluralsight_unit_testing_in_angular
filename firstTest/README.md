@@ -6,15 +6,7 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 2. npm i
 3. npm start
 
-## Project
-1. firstTest: npm test to see the result
-2. 
 
-## How to structure a test
-A test should be a complete story, all within the it()
-1. move less interesting setup into beforeEach()
-2. keep critical setup with in the it()
-3. inlcude Arrange, Act, and Assert inside the it()
 
 3A for unit testing: Arrange, Act and Assert
 
