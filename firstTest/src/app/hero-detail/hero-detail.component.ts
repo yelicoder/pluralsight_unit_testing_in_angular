@@ -33,6 +33,7 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  /*
   save(): void {
     var p = new Promise((resolve) => {
       this.heroService.updateHero(this.hero)
@@ -40,13 +41,20 @@ export class HeroDetailComponent implements OnInit {
       resolve();
     });
   }
+  */
+
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+}
 // save(): void {
   // debounce(() => {
     // this.heroService.updateHero(this.hero)
      //.subscribe(() => this.goBack());
   // }, 250, false) ();
   //}
-}
+//}
 
 function debounce(func, wait, immediate){
   var timeout;

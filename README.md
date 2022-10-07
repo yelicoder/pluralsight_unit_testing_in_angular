@@ -3,12 +3,14 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 
 ## Run the application
 1. checkout the code
-2. npm i
-3. npm start
+2. nvm use 12.14.1
+3. npm i
+4. npm start
+5. npm test
 
 ## Project
 1. firstTest: npm test to see the result
-2. 
+2. testPipe: ng test to see the result
 
 ## How to structure a test
 A test should be a complete story, all within the it()
