@@ -12,6 +12,7 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 1. firstTest: npm test to see the result
 2. testPipe: test strengthPipe
 3. testService: test messageService.
+4. testASingleTestCase: simply replace "it" with "fit" will test one test case starting with "fit"
 
 ## How to structure a test
 A test should be a complete story, all within the it()
