@@ -10,7 +10,7 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 
 ## Project
 1. firstTest: npm test to see the result
-2. testPipe: ng test to see the result
+2. testPipe: npm test to see the result
 
 ## How to structure a test
 A test should be a complete story, all within the it()
