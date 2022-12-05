@@ -3,10 +3,11 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 
 ## Run the application
 1. checkout the code
-2. nvm use 12.14.1
-3. npm i
-4. npm start
-5. npm test
+2. go to the directory
+3. nvm use 16.16.0
+4. npm i
+5. "npm start" or "ng serve --open"
+6. "npm test" or "ng test"
 
 ## Project
 1. firstTest: npm test to see the result
@@ -90,3 +91,6 @@ Test Async Call: FakeAsync is the best
 3) for Promise, you can also use async 
 
 Code Coverage: ng test --code-coverage
+
+# Reference
+1. Debug Test: https://angular.io/guide/test-debugging
