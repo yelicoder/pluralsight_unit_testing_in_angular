@@ -15,6 +15,10 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 3. testService: test messageService.
 4. testASingleTestCase: simply replace "it" with "fit" will test one test case starting with "fit"
 
+## Testing Tools
+Karma: Test Execution
+Jasmine: Mock
+
 ## How to structure a test
 A test should be a complete story, all within the it()
 1. move less interesting setup into beforeEach()
