@@ -3,53 +3,19 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 
 ## Run the application
 1. checkout the code
-2. go to the directory
-3. nvm use 16.16.0
-4. npm i
-5. "npm start" or "ng serve --open"
-6. "npm test" or "ng test"
+2. npm i
+3. npm start
 
-## Project
-1. firstTest: npm test to see the result
-2. testPipe: test strengthPipe
-3. testService: test messageService.
-4. testASingleTestCase: simply replace "it" with "fit" will test one test case starting with "fit"
-5. testComponent: copy firstTest folder. do a npm -i --force to install the dependency
 
-## Testing Tools
-Karma: Test Execution
-Jasmine: Mock
-
-## How to structure a test
-A test should be a complete story, all within the it()
-1. move less interesting setup into beforeEach()
-2. keep critical setup with in the it()
-3. inlcude Arrange, Act, and Assert inside the it()
 
 3A for unit testing: Arrange, Act and Assert
 
-## Isolated Test
-### How to test a component
 Describe the component you want to test and use a () => {} call back method.
 Use beforeEach (()=>{}) to do the set up for all testing.
 Use it ('description of the test', ()=> {}) to do a specific test. 
 Use describe ('group name', ()=> {}) to group testes together. 
-fit means only test that case
-xit means skip that test
 
-When testing a component, it should test the both the state and the interaction. Test the interaction means to test if a service is called
-
-#### test the state
-expect(component.heroes.length).toBe(2);
-
-#### test interaction
-expect(mockHeroService.deleteHero).toHaveBeenCalled();
-expect(mockHeroService.deleteHero).toHaveBeenCalledWith(HEROES[2]);
-
-#### mock a service
-You can create a mockService by using jasmine.createSpyObj(['method1', 'method2', ...]).
-This is how you mock the return value of mocked service:
-mockHeroService.deleteHero.and.returnValue(of(true));
+You can create a mockService by using jasmine.createSpyObj.
 
 You need TestBed and ComponentFixture to test a component.
 TestBed configures and initializes environment for unit testing and provides methods for creating components and services in unit tests.
@@ -112,6 +78,3 @@ Test Async Call: FakeAsync is the best
 3) for Promise, you can also use async 
 
 Code Coverage: ng test --code-coverage
-
-# Reference
-1. Debug Test: https://angular.io/guide/test-debugging
