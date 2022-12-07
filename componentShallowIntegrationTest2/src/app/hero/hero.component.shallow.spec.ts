@@ -21,7 +21,7 @@ describe('HeroComponent (shallow test) ', () => {
         expect(fixture.componentInstance.hero.name).toEqual('SuperDude');
     })
 
-    it ('should render the hero name in an anchor tag', () => {
+    it ('shouldrender the hero name in an anchor tag', () => {
         fixture.componentInstance.hero = {id: 1, name: 'SuperDude', strength: 3};
 
         fixture.detectChanges(); //this has to be called in order for the data to be binding with HTML

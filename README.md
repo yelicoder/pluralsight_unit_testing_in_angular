@@ -14,9 +14,10 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 2. testPipe: test strengthPipe
 3. testService: test messageService.
 4. testASingleTestCase: simply replace "it" with "fit" will test one test case starting with "fit"
-5. testComponent: copy firstTest folder. do a npm -i --force to install the dependency
+5. testComponent: copy firstTest folder. remove node_modules. do a npm -i --force to install the dependency. Isolated test. This does not need TestBed. Simply create the component and use mockService.
 6. componentShallowIntegrationTest: test the hero component
-7. componentShallowIntegrationTest2: test the heroes compopnent
+7. componentShallowIntegrationTest2: test the heroes compopnent. Test component that has a service as an injected dependency.
+8. componentShallowIntegrationTest3: test the heroes component. use a mocked child component
 
 ## Testing Tools
 Karma: Test Execution
@@ -56,7 +57,7 @@ This is how you mock the return value of mocked service:
 mockHeroService.deleteHero.and.returnValue(of(true));
 
 ## Shallow Integration Tests
-Only test the component. None of the child component or directives
+Only test the component. None of the child component or directives. TestBed is needed when the test has interaction between component and component template (html file)
 
 You need TestBed and ComponentFixture to test a component.
 
@@ -89,6 +90,8 @@ providers: [
 ]
 
 In general, whatever in the component's constructor need be mocked
+
+In Angular unit test, the ngOnInit method is never directly called. Instead fixture.detecChanges() is called to trigger the life cycle events.
 
 You can create a fake child component using the same selector as the real child component
 
