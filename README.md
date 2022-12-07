@@ -17,7 +17,7 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 5. testComponent: copy firstTest folder. remove node_modules. do a npm -i --force to install the dependency. Isolated test. This does not need TestBed. Simply create the component and use mockService.
 6. componentShallowIntegrationTest: test the hero component
 7. componentShallowIntegrationTest2: test the heroes compopnent. Test component that has a service as an injected dependency.
-8. componentShallowIntegrationTest3: test the heroes component. use a mocked child component
+8. componentShallowIntegrationTest3: test the heroes component using a fake child component
 
 ## Testing Tools
 Karma: Test Execution
@@ -84,6 +84,7 @@ NO_ERRORS_SCHEMA: do not try to validate the HTML
 fixture.nativeElement exposes the browser's DOM API
 fixture.debugElement is a wrapper around the DOM node. Debug element has a way to access things like routerlink that nativeElement does not have access to
 
+### Inject a service
 A mockService can be injected to the component using the following:
 providers: [
     {provide: HeroService, useValue: mockHeroService}
@@ -93,7 +94,22 @@ In general, whatever in the component's constructor need be mocked
 
 In Angular unit test, the ngOnInit method is never directly called. Instead fixture.detecChanges() is called to trigger the life cycle events.
 
+### mock a child component
 You can create a fake child component using the same selector as the real child component
+
+```
+@Component({
+      selector: 'app-hero',
+      template: '<div></div>',
+    })
+    class HeroComponent {
+      @Input() hero: Hero;
+    }
+```
+Using the fake child component enable to remove the following:
+```
+schemas: [NO_ERRORS_SCHEMA]
+```
 
 You can use the actual child component and the debug element to do a deep integration test
 
