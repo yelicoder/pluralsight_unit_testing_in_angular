@@ -20,7 +20,7 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 8. componentShallowIntegrationTest3: test the heroes component using a fake child component
 9. componentShallowIntegrationTest4: list of elements in component template
 10. componentDeepIntegrationTest: interaction between Hero and Heroes component
-
+11. serviceDeepIntegrationTest: HttpTestingController
 
 ## Testing Tools
 Karma: Test Execution
@@ -114,14 +114,39 @@ Using the fake child component enable to remove the following:
 schemas: [NO_ERRORS_SCHEMA]
 ```
 
+## Deep Integration Test
+### Component Deep Integration Test
 You can use the actual child component and the debug element to do a deep integration test
 
+### Service Deep Integration Test
 To unit test a service, need do the following
 1) user TestBed to get the service and HttpTestingController
 2) call the service with specific parameters
 3) req = httpTestingController.expectOne(correctURL)
 4) req.flush(correct response data)
 5) httpTestingController.verify()
+
+```
+TestBed.configureTestingModule({
+            imports: [ HttpClientTestingModule ],    
+            providers: [
+                HeroService,
+                {provide: MessageService, useValue: mockMessageService}
+            ]
+        })
+
+        controller = TestBed.inject(HttpTestingController);
+        service = TestBed.inject(HeroService);
+
+        service.getHero(4).subscribe();
+
+        const req = controller.expectOne('api/heroes/4');
+        req.flush({id: 4, name: 'SuperDude', strength: 100});
+        expect(req.request.method).toBe('GET');
+
+        controller.verify();
+
+```
 
 To test an inputbox
 1) Get the native element of the input debugElement
