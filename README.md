@@ -18,9 +18,9 @@ Origina code are from https://github.com/joeeames/PSAngularUnitTestingCourse
 6. componentShallowIntegrationTest: test the hero component
 7. componentShallowIntegrationTest2: test the heroes compopnent. Test component that has a service as an injected dependency.
 8. componentShallowIntegrationTest3: test the heroes component using a fake child component
-9. componentShallowIntegrationTest4: list of elements in component template
+9. componentShallowIntegrationTest4: list of elements in component template. heroes component
 10. componentDeepIntegrationTest: interaction between Hero and Heroes component
-11. serviceDeepIntegrationTest: HttpTestingController
+11. serviceDeepIntegrationTest: HttpTestingController, hero service
 
 ## Testing Tools
 Karma: Test Execution
